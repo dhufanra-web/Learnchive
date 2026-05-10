@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktik</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header {
+            background: #81D4FA;
+            width: 360px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        header,
+        footer {
+            width: 360px;
+            margin: 0 auto;
+        }
+
+        footer {
+            margin: 0 auto;
+            margin-top: auto;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .back {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .button-img {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            padding-right: 35px;
+            padding-left: 35px;
+            background: none;
+            border-radius: 15px;
+            border: 2px solid #ccc;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .elemen-btn {
+            height: 70px;
+        }
+
+        .judul-img {
+            height: 60px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        .bawah {
+            height: 77px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class="back" href="home.html"><img src="img/elemen/back-button.png" alt=""></a>
+        <img class="logo" src="img/elemen/logo (2).png" alt="">
+    </header>
+
+    <main>
+        <div class="judul">
+            <img class="judul-img" src="img/praktik/judul-img.png" alt="">
+        </div>
+
+        <div class="button-img">
+            <a href="sistem_abjad.html"><img class="elemen-btn" src="img/praktik/abjad.png" alt=""></a>
+            <a href="sistem_subjek.html"><img class="elemen-btn" src="img/praktik/btn-subyek.png" alt=""></a>
+            <a href="sistem_kronologis.html"><img class="elemen-btn" src="img/praktik/btn-tanggal.png" alt=""></a>
+            <a href="sistem_numerik.html"><img class="elemen-btn" src="img/praktik/btn-nomor.png" alt=""></a>
+            <a href="sistem_wilayah.html"><img class="elemen-btn" src="img/praktik/wilayah.png" alt=""></a>
+        </div>
+    </main>
+
+    <footer>
+        <img class="bawah" src="img/elemen/bawah-img.png" alt="">
+    </footer>
+</body>
+
+</html>

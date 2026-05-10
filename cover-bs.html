@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benar atau Salah</title>
+    <Style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .Container {
+            height: 100dvh;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100dvh;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        header {
+            background: #81D4FA;
+            width: 360px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        header,
+        footer {
+            width: 360px;
+            margin: 0 auto;
+        }
+
+        footer {
+            margin: 0 auto;
+            margin-top: auto;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .back {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .foto-bs {
+            margin-bottom: 20px;
+            margin-top: 30px;
+            height: 60px;
+        }
+
+        .button-bs {
+            height: 100px;
+        }
+
+        .bawah {
+            width: 360px;
+        }
+    </Style>
+</head>
+
+<body>
+    <div class="Container">
+        <header>
+            <a class="back" href="cover-game.html"><img src="img/elemen/back-button.png" alt=""></a>
+            <img class="logo" src="img/elemen/logo (2).png" alt="">
+        </header>
+
+        <main>
+            <img class="foto-bs" src="img/Cover Benar Salah/bs-img (2).png" alt="">
+            <a href="game-bs-dasar.html"> <img class="button-bs" src="img/Cover Benar Salah/bs-dasar.png" alt=""></a>
+            <a href="game-bs-terampil.html"> <img class="button-bs" src="img/Cover Benar Salah/bs-terampil.png" alt=""></a>
+        </main>
+
+        <footer>
+            <img class="bawah" src="img/Pilihan Ganda/bawah.png" alt="">
+        </footer>
+    </div>
+
+</body>
+
+</html>

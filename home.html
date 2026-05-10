@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .atas {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #81D4FA;
+            height: 25%;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-bottom: 20px;
+            width: 360px;
+        }
+
+        .atas,
+        footer {
+            width: 360px;
+        }
+
+        .atas img {
+            width: 70%;
+        }
+
+        .daftar {
+            display: flex;
+            gap: 35px;
+            justify-content: center;
+        }
+
+        .kotak {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #81D4FA;
+            width: 130px;
+            height: 150px;
+            margin-top: 35px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            height: 70px;
+        }
+
+        .elemen {
+            height: 130px;
+        }
+
+        .bawah {
+            width: 100%;
+            height: 100px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .button {
+            text-decoration: none;
+            color: black;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100dvh;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        #audioToggle {
+            margin-top: 8px;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .audio-btn {
+            width: 50px;
+            margin-left: 290px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="atas">
+            <h2>Halo, Selamat Datang</h2>
+            <img class="logo" src="img/home/home-img1.png" alt="">
+        </div>
+
+        <div class="daftar">
+            <div>
+                <div class="kotak">
+                    <a class="button" href="dev.html"> <img class="elemen" src="img/home/home-img2.png" alt="">
+                    </a>
+                </div>
+
+                <div class="kotak">
+                    <a href="cover-game.html"><img class="elemen" src="img/home/home-img3.png" alt=""></a>
+                </div>
+            </div>
+
+            <div>
+                <div class="kotak">
+                    <a href="materi.html"><img class="elemen" src="img/home/home-img4.png" alt=""></a>
+                </div>
+
+                <div class="kotak">
+                    <a href="praktik.html"><img class="elemen" src="img/home/home-img5.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <button class="audio-btn" id="audioToggle">🔊 Audio On</button>
+
+        <footer>
+            <img class="bawah" src="img/home/home-img6.png" alt="">
+        </footer>
+
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="audio/bg-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const music = document.getElementById("bgMusic");
+        const audioToggle = document.getElementById("audioToggle");
+
+        let isAudioOn = localStorage.getItem("audioOn");
+
+        if (isAudioOn === "true") {
+            music.play().catch(() => { });
+            audioToggle.textContent = "🔊";
+        } else {
+            audioToggle.textContent = "🔇";
+        }
+
+        audioToggle.addEventListener("click", () => {
+            if (localStorage.getItem("audioOn") === "true") {
+                localStorage.setItem("audioOn", "false");
+                music.pause();
+                audioToggle.textContent = "🔇";
+            } else {
+                localStorage.setItem("audioOn", "true");
+                music.play().catch(() => { });
+                audioToggle.textContent = "🔊";
+            }
+        });
+    </script>
+</body>
+
+</html>

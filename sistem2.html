@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Penyimpanan Arsip</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #81D4FA;
+            width: 360px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        header,
+        footer {
+            width: 360px;
+            margin: 0 auto;
+        }
+
+        footer {
+            margin: 0 auto;
+            margin-top: auto;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .back {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .judul-materi {
+            margin-top: 13px;
+            height: 60px;
+        }
+
+        .sitasi {
+            text-align: center;
+        }
+
+        .materi {
+            background: #CDEEFD;
+            width: 320px;
+            font-size: 15px;
+            text-align: justify;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .materi p {
+            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        .next {
+            margin-left: 180px;
+            margin-top: 5px;
+        }
+
+        .img-next {
+            height: 65px;
+        }
+
+        .bawah {
+            height: 77px;
+        }
+
+        .spasi {
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class="back" href="sistem.html"><img src="img/elemen/back-button.png" alt=""></a>
+        <img class="logo" src="img/elemen/logo (2).png" alt="">
+    </header>
+
+    <main>
+        <div>
+            <img class="judul-materi" src="img/sistem/sistem-img.png" alt="">
+        </div>
+
+        <div class="materi">
+            <p class="sitasi"><strong>Amsyah, Z. (2005). Manajemen Kearsipan. Jakarta: PT Gramedia Pustaka
+                    Utama.</strong></p>
+        </div>
+
+        <div class="materi">
+            <p class="spasi"><strong>3. Sistem Subyek (Subject Filing System)</strong> <br>
+                Arsip dikelompokkan berdasarkan masalah, topik, atau kegiatan tertentu, bukan berdasarkan nama atau
+                lokasi. Sistem ini digunakan untuk organisasi yang berorientasi pada fungsi atau program, dan yang
+                mengelola berbagai proyek. </p>
+        </div>
+
+        <div class="materi">
+            <p class="spasi"> <strong>4. Sistem Tanggal (Chronological Filing System)</strong> <br>
+                Menyusun arsip berdasarkan urutan waktu, baik berdasarkan tanggal, bulan, atau tahun. Setiap arsip
+                dikelompokkan pada satuan waktu tertentu dan disimpan berurutan sesuai waktu penerimaan dan pembuatan.
+            </p>
+        </div>
+
+        <div class="materi">
+            <p class="spasi"><strong>5. Sistem Wilayah (Geographical Filing System)</strong> <br>
+                Arsip diklasifikasikan berdasarkan lokasi geografis seperti daerah, kota, provinsi, atau negara. Sistem
+                ini memudahkan pelacakan informasi sesuai lokasi asal arsip atau lokasi aktivitas yang tercantum dalam
+                dokumen.
+            </p>
+    </main>
+
+    <footer>
+        <img class="bawah" src="img/elemen/bawah-img.png" alt="">
+    </footer>
+
+</body>
+
+</html>

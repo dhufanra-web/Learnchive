@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <Style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100dvh;
+        }
+
+        .Container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background: #81D4FA;
+            width: 360px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        header,
+        footer {
+            width: 360px;
+            margin: 0 auto;
+        }
+
+        footer {
+            margin: 0 auto;
+            margin-top: auto;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .back {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .judul-materi {
+            margin-top: 20px;
+            height: 60px;
+        }
+
+        .quiz-img {
+            height: 80px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button-quiz {
+            height: 140px;
+        }
+
+        .bs-btn {
+            margin-top: 10px;
+        }
+
+        .bawah {
+            height: 77px;
+        }
+    </Style>
+</head>
+
+<body>
+    <div class="Container">
+        <header>
+            <a class="back" href="home.html"><img src="img/elemen/back-button.png" alt=""></a>
+            <img class="logo" src="img/elemen/logo (2).png" alt="">
+        </header>
+        <main>
+            <img class="judul-materi" src="img/Cover Latihan Soal/latihan-img.png" alt="">
+            <img class="quiz-img" src="img/Cover Latihan Soal/quiz-img.png" alt="">
+
+            <a href="cover-pilgan.html"><img class="button-quiz" src="img/Cover Latihan Soal/pilgan-img.png" alt=""></a>
+            <a class="bs-btn" href="cover-bs.html"> <img class="button-quiz" src="img/Cover Latihan Soal/bs-img.png" alt=""></a>
+        </main>
+
+        <footer>
+            <img class="bawah" src="img/elemen/bawah-img.png" alt="">
+        </footer>
+    </div>
+
+</body>
+
+</html>

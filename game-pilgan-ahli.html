@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnchive Quiz</title>
+    <style>
+        :root {
+            --bg-color: #AF4061;
+            --header-color: #8e7aa1;
+            --card-color: #e6cc8e;
+            --option-color: #ffaa2b;
+            --yellow-light: #eef296;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 360px;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            min-height: 100dvh;
+        }
+
+        /* Header Style */
+        header {
+            display: flex;
+            align-items: center;
+            background-color: var(--header-color);
+            margin: -20px -20px 20px -20px;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .back-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        /* Quiz UI Elements */
+        .q-number {
+            background-color: var(--yellow-light);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .question-card {
+            background-color: var(--card-color);
+            padding: 25px;
+            border-radius: 30px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-option {
+            background-color: var(--option-color);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 40px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-option.correct {
+            background-color: #4CAF50 !important;
+            color: white;
+        }
+
+        .btn-option.wrong {
+            background-color: #f44336 !important;
+            color: white;
+        }
+
+        .btn-next {
+            background-color: var(--yellow-light);
+            border: none;
+            padding: 12px 40px;
+            border-radius: 5px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            visibility: hidden;
+            margin: 30px auto;
+            display: block;
+        }
+
+        /* --- Score Page Styles --- */
+        #score-page {
+            display: none;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-box {
+            background: white;
+            padding: 10px 40px;
+            border-radius: 40px;
+            margin-bottom: 30px;
+        }
+
+        .logo-box h2 {
+            color: #5a2d82;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .congrats-img {
+            width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .result-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .result-label {
+            background: white;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: 900;
+            width: 100px;
+        }
+
+        .label-benar {
+            color: #2ecc71;
+        }
+
+        .label-salah {
+            color: #e74c3c;
+        }
+
+        .result-value {
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: #2ecc71;
+        }
+
+        .val-salah {
+            color: #e74c3c;
+        }
+
+        .btn-finish {
+            background: white;
+            border: none;
+            padding: 15px 60px;
+            border-radius: 40px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            margin-top: 50px;
+            cursor: pointer;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .teks-pilgan {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="quiz-section">
+            <header>
+                <a href="cover-pilgan.html">
+                    <div class="back-icon"><img src="img/elemen/back-button.png" alt=""></div>
+                </a>
+                <div class="teks-pilgan">PILIHAN GANDA</div>
+            </header>
+
+            <div class="q-number" id="q-number">1.</div>
+            <div class="question-card" id="question-text">Memuat soal...</div>
+            <div class="options-list" id="options-container"></div>
+            <button class="btn-next" id="next-btn" onclick="handleNext()">Soal Berikutnya</button>
+        </div>
+
+        <div id="score-page">
+            <div>
+                <img class="logo" src="img/game-pilgan/logo.png" alt="">
+            </div>
+
+            <div class="congrats-img">
+                <img src="img/game-pilgan/congrats.png" alt="">
+            </div>
+
+            <div class="result-row">
+                <div class="result-label label-benar">BENAR</div>
+                <div class="result-value val-benar" id="final-benar">0</div>
+            </div>
+
+            <div class="result-row">
+                <div class="result-label label-salah">SALAH</div>
+                <div class="result-value val-salah" id="final-salah">0</div>
+            </div>
+
+            <a href="cover-pilgan.html"><button class="btn-finish">SELESAI</button></a>
+
+        </div>
+    </div>
+
+    <audio id="correctSound" src="audio/benar.mp3" preload="auto"></audio>
+    <audio id="wrongSound" src="audio/salah.mp3" preload="auto"></audio>
+    <audio id="finishSound" src="audio/hasil.mp3" preload="auto"></audio>
+
+    <script>
+        const quizData = [
+            {
+                num: 1,
+                q: "Sebuah instansi menyimpan rekaman rapat dalam bentuk video, notulen, dan email. Semua data tersebut digunakan sebagai bukti kegiatan organisasi. Berdasarkan kasus tersebut, yang dimaksud arsip adalah…",
+                options: ["Dokumen tertulis saja yang disimpan secara fisik", "Rekaman kegiatan dalam berbagai bentuk dan media", "Data penting yang hanya berbentuk kertas", "Data penting yang hanya berbentuk kertas", "Kumpulan informasi yang hanya bisa diakses oleh pimpinan"],
+                answer: 1 // c
+            },
+            {
+                num: 2,
+                q: "Sebuah kantor menyimpan dokumen lama yang sudah tidak digunakan dalam kegiatan sehari-hari, tetapi tetap dipelihara karena bernilai sejarah. Jenis arsip tersebut adalah…",
+                options: ["Arsip aktif", "Arsip inaktif", "Arsip statis", "Arsip dinamis", "Arsip vital "],
+                answer: 2 // B
+            },
+            {
+                num: 3,
+                q: "Di sebuah perusahaan, dokumen transaksi tahun berjalan sering diakses setiap hari oleh bagian keuangan. Jenis arsip tersebut termasuk…",
+                options: ["Arsip statis karena penting", "Arsip aktif karena sering digunakan", "Arsip inaktif karena akan disimpan", "Arsip permanen karena tidak boleh hilang", " Arsip dinamis karena masih memiliki nilai guna", "Akuntabel karena dapat diaudit"],
+                answer: 1 // D
+            },
+            {
+                num: 4,
+                q: "Sebuah dokumen laporan keuangan dinilai memiliki data yang akurat, dapat dipercaya, dan dapat dipertanggungjawabkan. Karakteristik arsip yang paling tepat adalah…",
+                options: ["Autentik", "Lengkap", "Terpercaya", "Dinamis", "Akuntabel"],
+                answer: 2 // C
+            },
+            {
+                num: 5,
+                q: "Sebuah organisasi mengelola seluruh arsipnya di satu unit khusus agar lebih mudah dikontrol. Namun, pelayanan menjadi lebih lambat karena harus melalui satu pintu. Asas yang digunakan adalah…",
+                options: ["Desentralisasi karena tersebar", "Gabungan karena sebagian unit mengelola", "Sentralisasi karena dipusatkan", "Kronologis karena berdasarkan waktu", "Spesialisasi karena dikelola unit ahli"],
+                answer: 2 // c
+            },
+            {
+                num: 6,
+                q: "Sebuah perusahaan membagi pengelolaan arsip ke masing-masing divisi agar lebih cepat diakses. Namun, terjadi perbedaan prosedur antar divisi. Kelemahan dari sistem tersebut adalah…",
+                options: ["Biaya rendah dan efisien", "Pengawasan sulit dilakukan secara seragam", "Semua arsip terpusat di satu tempat", "Arsip mudah ditemukan oleh semua pihak", "Membutuhkan ruang penyimpanan yang terpusat dan luas"],
+                answer: 1 // B
+            },
+            {
+                num: 7,
+                q: "Seorang pegawai menemukan dokumen lama yang sudah jarang dipakai, tetapi masih bisa digunakan sebagai referensi jika diperlukan. Dokumen tersebut termasuk…",
+                options: ["Arsip aktif", "Arsip inaktif", "Arsip statis", "Arsip permanen", "Arsip primer"],
+                answer: 1 // D
+            },
+            {
+                num: 8,
+                q: "Sebuah kantor mengelompokkan arsip berdasarkan topik seperti “Keuangan”, “Kepegawaian”, dan “Pemasaran”. Sistem penyimpanan yang digunakan adalah…",
+                options: ["Sistem abjad", "Sistem numerik", "Sistem subjek", "Sistem kronologi", "Sistem klasifikasi geografis"],
+                answer: 2 // C
+            },
+            {
+                num: 9,
+                q: "Dalam pengelolaan arsip, suatu instansi mulai memilah dokumen mana yang harus dimusnahkan dan mana yang disimpan permanen. Tahapan ini disebut…",
+                options: ["Penciptaan arsip", "Penggunaan arsip", "Penyusutan arsip", "Penyimpanan arsip", "Pendataan ulang atau registrasi arsip"],
+                answer: 2 // c
+            },
+            {
+                num: 10,
+                q: "Sebuah arsip digunakan sebagai bukti hukum dalam persidangan, sebagai sumber sejarah, dan sebagai dasar pengambilan keputusan pimpinan. Hal tersebut menunjukkan bahwa arsip memiliki…",
+                options: ["Nilai estetika dan pajangan", "Nilai guna informasi dan hukum saja", "Nilai guna yang beragam bagi organisasi", "Nilai terbatas hanya untuk dokumentasi", "Nilai ekonomi yang sangat tinggi bagi masyarakat umum"],
+                answer: 2 // B
+            },
+
+        ];
+
+        let currentIdx = 0;
+        let scoreBenar = 0;
+        let scoreSalah = 0;
+
+        function initQuiz() {
+            const data = quizData[currentIdx];
+
+            document.getElementById('q-number').innerText = data.num + ".";
+            document.getElementById('question-text').innerText = data.q;
+
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.style.visibility = 'hidden';
+
+            // Ubah teks tombol terakhir
+            if (currentIdx === quizData.length - 1) {
+                nextBtn.innerText = "SELESAI";
+            } else {
+                nextBtn.innerText = "Soal Berikutnya";
+            }
+
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            data.options.forEach((opt, index) => {
+                const letter = String.fromCharCode(65 + index);
+
+                const btn = document.createElement('button');
+                btn.className = 'btn-option';
+
+                btn.innerHTML = `
+                <span>${letter}. ${opt}</span>
+                <span class="status-icon"></span>
+            `;
+
+                btn.onclick = () => checkAnswer(btn, index);
+
+                container.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(selectedBtn, idx) {
+
+            const correctIdx = quizData[currentIdx].answer;
+            const allButtons = document.querySelectorAll('.btn-option');
+
+            // Audio
+            const correctSound = document.getElementById('correctSound');
+            const wrongSound = document.getElementById('wrongSound');
+
+            // Disable semua tombol setelah memilih
+            allButtons.forEach(btn => {
+                btn.style.pointerEvents = 'none';
+            });
+
+            // Jika jawaban benar
+            if (idx === correctIdx) {
+
+                selectedBtn.classList.add('correct');
+                selectedBtn.querySelector('.status-icon').innerText = '✔';
+
+                scoreBenar++;
+
+                // Stop sound lain
+                wrongSound.pause();
+                wrongSound.currentTime = 0;
+
+                // Mainkan sound benar
+                correctSound.pause();
+                correctSound.currentTime = 0;
+
+                correctSound.play().catch(err => {
+                    console.log("Audio benar gagal:", err);
+                });
+
+            } else {
+
+                // Jawaban salah
+                selectedBtn.classList.add('wrong');
+                selectedBtn.querySelector('.status-icon').innerText = '✖';
+
+                // Tampilkan jawaban benar
+                allButtons[correctIdx].classList.add('correct');
+                allButtons[correctIdx].querySelector('.status-icon').innerText = '✔';
+
+                scoreSalah++;
+
+                // Stop sound lain
+                correctSound.pause();
+                correctSound.currentTime = 0;
+
+                // Mainkan sound salah
+                wrongSound.pause();
+                wrongSound.currentTime = 0;
+
+                wrongSound.play().catch(err => {
+                    console.log("Audio salah gagal:", err);
+                });
+            }
+
+            // Tampilkan tombol next
+            document.getElementById('next-btn').style.visibility = 'visible';
+        }
+
+        function handleNext() {
+
+            // Jika masih ada soal
+            if (currentIdx < quizData.length - 1) {
+
+                currentIdx++;
+                initQuiz();
+
+            } else {
+
+                // Jika quiz selesai
+                showResults();
+            }
+        }
+
+        function showResults() {
+            const correctSound = document.getElementById('correctSound');
+            const wrongSound = document.getElementById('wrongSound');
+            const finishSound = document.getElementById('finishSound');
+
+            // Stop semua sound sebelumnya
+            correctSound.pause();
+            wrongSound.pause();
+
+            correctSound.currentTime = 0;
+            wrongSound.currentTime = 0;
+
+            // Tampilkan halaman hasil
+            document.getElementById('quiz-section').style.display = 'none';
+            document.getElementById('score-page').style.display = 'flex';
+
+            // Tampilkan skor
+            document.getElementById('final-benar').innerText = scoreBenar;
+            document.getElementById('final-salah').innerText = scoreSalah;
+
+            // Mainkan sound hasil
+            setTimeout(() => {
+
+                finishSound.pause();
+                finishSound.currentTime = 0;
+
+                finishSound.play().catch(err => {
+                    console.log("Audio hasil gagal:", err);
+                });
+
+            }, 300);
+        }
+
+        initQuiz();
+    </script>
+
+</body>
+
+</html>

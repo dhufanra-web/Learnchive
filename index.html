@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnchive</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100dvh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            background: #F2F9FD;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            max-width: 360px;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in forwards;
+        }
+
+        .img1 {
+            width: 100%;
+            height: auto;
+        }
+
+        .img2 {
+            width: 50%;
+            height: auto;
+        }
+
+        .img3 {
+            width: 100%;
+            height: auto;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <img class="img1" src="img/splace/splace1.png" alt="">
+        <img class="img2" src="img/splace/splace2.png" alt="">
+        <img class="img3" src="img/splace/splace3.png" alt="">
+    </div>
+
+    <!-- <audio id="bgMusic" loop>
+        <source src="audio/bg-music.mp3" type="audio/mpeg">
+    </audio> -->
+
+    <script>
+        // const music = document.getElementById("bgMusic");
+
+        // // cek status audio
+        // let isAudioOn = localStorage.getItem("audioOn");
+
+        // if (isAudioOn === null) {
+        //     localStorage.setItem("audioOn", "true");
+        //     isAudioOn = "true";
+        // }
+
+        // if (isAudioOn === "true") {
+        //     music.play().catch(() => { });
+        // }
+
+        setTimeout(function () {
+            window.location.href = "login.html";
+        }, 3000);
+    </script>
+</body>
+
+</html>

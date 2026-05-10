@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Penyimpanan Arsip</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #81D4FA;
+            width: 360px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        header,
+        footer {
+            width: 360px;
+            margin: 0 auto;
+        }
+
+        footer {
+            margin: 0 auto;
+            margin-top: auto;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .back {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .judul-materi {
+            margin-top: 13px;
+            height: 60px;
+        }
+
+        .sitasi {
+            text-align: center;
+        }
+
+        .materi {
+            background: #CDEEFD;
+            width: 320px;
+            font-size: 15px;
+            text-align: justify;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .materi p {
+            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        .next {
+            margin-left: 180px;
+            margin-top: 5px;
+        }
+
+        .img-next {
+            height: 65px;
+        }
+
+        .bawah {
+            height: 77px;
+        }
+
+        .spasi {
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class="back" href="materi.html"><img src="img/elemen/back-button.png" alt=""></a>
+        <img class="logo" src="img/elemen/logo (2).png" alt="">
+    </header>
+
+    <main>
+        <div>
+            <img class="judul-materi" src="img/sistem/sistem-img.png" alt="">
+        </div>
+
+        <div class="materi">
+            <p class="sitasi"><strong> Menurut Amsyah, Z. (2005).</strong></p>
+        </div>
+
+        <div class="materi">
+            <p>Sistem penyimpanan arsip adalah tata cara sistematis untuk mengatur, menyimpan, dan menemukan kembali
+                dokumen (warkat) berdasarkan pedoman tertentu seperti abjad, nomor, subyek, tanggal, dan wilayah. </p>
+        </div>
+
+        <div class="materi">
+            <p class="spasi"><strong>1. Sistem Abjad (Alphabatical Filing System) </strong><br> Dalam sistem ini, arsip
+                dikelompokkan berdasarkan huruf awal dari
+                nama orang, nama instansi, nama tempat, atau subjek/topik dokumen. Setiap folder atau map disusun
+                mengikuti urutan alfabetis.
+            </p>
+        </div>
+
+        <div class="materi">
+            <p class="spasi"><strong>2. Sistem Nomor (Numeric Filing System) </strong><br> Metode klasifikasi arsip
+                dengan menggunakan angka atau kode angka
+                yang telah ditentukan sebelumnya. Setiap jenis arsip diberi kode khusus berupa angka yang menggambarkan
+                topik atau jenis informasi tertentu. Sistem penyimpanan arsip nomor dibagi menjadi dua kategori utama,
+                yaitu: <br>
+            <p class="spasi"> (1).Sistem Desimal Dewey yaitu menyusun arsip berdasarkan kode subjek angka, contoh 000 untuk
+                Umum
+                010 untuk Urusan Kepegawaian
+                011 untuk Cuti Pegawai.</p>
+
+            <p class="spasi">(2).Terminal Digit ialah dengan mengelompokkan
+                arsip berdasarkan angka akhir secara urut, contoh Nomor: 00 - 24 maka cari di laci/map nomor: 24
+                (diambil dari dua angka terakhir) serta mengurutkan di dalam map: 00 (nomor surat ke-0).</p>
+            </p>
+        </div>
+        <a class="next" href="sistem2.html"><img class="img-next" src="img/elemen/next2.png" alt=""></a>
+    </main>
+
+    <footer>
+        <img class="bawah" src="img/elemen/bawah-img.png" alt="">
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilihan Ganda</title>
+    <Style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .Container {
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background: #81D4FA;
+            width: 360px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .back {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        header,
+        footer {
+            width: 360px;
+            margin: 0 auto;
+        }
+
+        footer {
+            margin: 0 auto;
+            margin-top: auto;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .pilihan-ganda {
+            margin-top: 30px;
+            margin-bottom: 5px;
+            height: 60px;
+        }
+
+        .button-game {
+            height: 60px;
+        }
+
+        .bawah {
+            margin-top: 20px;
+        }
+    </Style>
+</head>
+
+<body>
+    <div class="Container">
+        <header>
+            <header>
+                <a class="back" href="cover-game.html"><img src="img/elemen/back-button.png" alt=""></a>
+                <img class="logo" src="img/elemen/logo (2).png" alt="">
+            </header>
+        </header>
+
+        <main>
+            <img class="pilihan-ganda" src="img/Pilihan Ganda/judul.png" alt="">
+
+            <a href="game-pilgan-dasar.html"><img class="button-game" src="img/Pilihan Ganda/dasar.png" alt=""></a>
+            <a href="game-pilgan-terampil.html"><img class="button-game" src="img/Pilihan Ganda/terampil.png" alt=""></a>
+            <a href="game-pilgan-ahli.html"><img class="button-game" src="img/Pilihan Ganda/ahli.png" alt=""></a>
+        </main>
+
+        <footer>
+            <img class="bawah" src="img/Pilihan Ganda/bawah.png" alt="">
+        </footer>
+    </div>
+</body>
+
+</html>

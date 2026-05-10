@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-width: 360px;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+        }
+
+        .content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .top-img,
+        .bottom-img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            display: block;
+        }
+
+        .foto {
+            width: 180px;
+            height: auto;
+            margin: 10px 0;
+        }
+
+        .form {
+            width: 90%;
+            max-width: 320px;
+            background: #E6F6FE;
+            border-radius: 30px;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #555;
+            padding-bottom: 8px;
+        }
+
+        .img-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .form-group input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 16px;
+            color: #222;
+        }
+
+        .form-group input::placeholder {
+            color: #555;
+        }
+
+        .login-btn {
+            margin-top: 10px;
+            width: 180px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            border-radius: 50px;
+        }
+
+        .login-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+
+        <img class="top-img" src="img/login/atas-lgn.png" alt="Header">
+
+        <img class="foto" src="img/login/logo (3).png" alt="Illustration">
+
+        <div class="form">
+
+            <div class="form-group">
+                <img class="img-icon" src="img/login/login-img4.png" alt="Nama">
+                <input type="text" placeholder="Nama">
+            </div>
+
+            <div class="form-group">
+                <img class="img-icon" src="img/login/login-img5.png" alt="Kelas">
+                <input type="text" placeholder="Kelas">
+            </div>
+
+            <div class="form-group">
+                <img class="img-icon" src="img/login/login-img6.png" alt="Sekolah">
+                <input type="text" placeholder="Sekolah">
+            </div>
+
+            <a href="home.html" id="loginLink">
+                <img class="login-btn" src="img/login/btn-msk.png" alt="Masuk">
+            </a>
+
+        </div>
+
+        <img class="bottom-img" src="img/login/bawah-lgn.png" alt="Footer">
+
+    </div>
+
+    <!-- <audio id="bgMusic" loop>
+        <source src="audio/bg-music.mp3" type="audio/mpeg">
+    </audio> -->
+
+    <script>
+        // const music = document.getElementById("bgMusic");
+
+        // if (localStorage.getItem("audioOn") === "true") {
+        //     music.play().catch(() => { });
+        // }
+
+        const loginLink = document.getElementById("loginLink");
+        const inputs = document.querySelectorAll(".form-group input");
+
+        loginLink.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            let allFilled = true;
+
+            inputs.forEach(input => {
+                if (input.value.trim() === "") {
+                    allFilled = false;
+                    input.style.border = "1px solid red";
+                } else {
+                    input.style.border = "none";
+                }
+            });
+
+            if (allFilled) {
+                window.location.href = "home.html";
+            } else {
+                alert("Semua kolom wajib diisi terlebih dahulu.");
+            }
+        });
+    </script>
+</body>
+
+</html>

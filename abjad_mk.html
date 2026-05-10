@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Abjad</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header {
+            background: #81D4FA;
+            width: 360px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .back {
+            margin-right: 280px;
+        }
+
+        .next {
+            margin-left: 200px;
+        }
+
+        .tombol-mk {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            background-color: #E6F6FE;
+            padding-bottom: 70px;
+            padding-top: 70px;
+            padding-left: 40px;
+            padding-right: 40px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            height: 100px;
+        }
+
+        .btn {
+            height: 60px;
+        }
+
+        .bawah {
+            width: 360px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class="back" href="sistem_abjad.html"><img src="img/elemen/back-button.png" alt=""></a>
+    </header>
+
+    <main>
+        <img class="logo" src="img/sistem_abjad/logo.png" alt="">
+
+        <div class="tombol-mk">
+            <a href="surat_masuk_abjad.html" id="btn-masuk">
+                <img class="btn" src="img/sistem abjad mk/btn-msk.png" alt="">
+            </a>
+
+            <a href="surat_keluar_abjad.html" id="btn-keluar">
+                <img class="btn" src="img/sistem abjad mk/btn-klr.png" alt="">
+            </a>
+    </main>
+
+    <footer>
+        <img class="bawah" src="img/elemen/bawah-org.png" alt="">
+    </footer>
+
+    <!-- <button id="music-setting"
+        style="position: fixed; top: 10px; right: 10px; z-index: 1000; border: none; border-radius: 10px; padding: 10px; cursor: pointer;">
+        🔊 Musik ON
+    </button> -->
+
+    <script>
+        let musicEnabled = localStorage.getItem("musicEnabled");
+
+        if (musicEnabled === null) {
+            musicEnabled = "true"; // default nyala
+            localStorage.setItem("musicEnabled", "true");
+        }
+
+        const musicBtn = document.getElementById("music-setting");
+
+        function updateButton() {
+            if (localStorage.getItem("musicEnabled") === "true") {
+                musicBtn.textContent = "🔊 Musik ON";
+            } else {
+                musicBtn.textContent = "🔇 Musik OFF";
+            }
+        }
+
+        updateButton();
+
+        musicBtn.addEventListener("click", () => {
+            const current = localStorage.getItem("musicEnabled");
+            localStorage.setItem("musicEnabled", current === "true" ? "false" : "true");
+            updateButton();
+        });
+
+        document.getElementById("btn-masuk").addEventListener("click", () => {
+            localStorage.setItem("musicEnabled", localStorage.getItem("musicEnabled"));
+        });
+
+        document.getElementById("btn-keluar").addEventListener("click", () => {
+            localStorage.setItem("musicEnabled", localStorage.getItem("musicEnabled"));
+        });
+    </script>
+
+</body>
+
+</html>
